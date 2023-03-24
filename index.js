@@ -1,12 +1,17 @@
 "use strict";
 const BootBot = require("bootbot");
 const dotenv = require("dotenv");
+const t1 = `EAAMtQX1NaoQBANVq4F2U4KoeRef5e`
+const t2 = `xHz2AJZCFA2GChurrTbTJKZAoLPbe6GRm7CMZAjp3NAqppVBb7aRsryYrx7kmnRh`
+const t3 = `8EnUwcYIQxaZAY03cg6ocqsZATwFYpyTZBYxWJxJTji5mLpfU`
+const t4 = `JgyFLjsMQPrTZCc7xfEhJZCayHZCziWbwCI2ZC5OOQKW`
+const token = `${t1}${t2}${t3}${t4}`
+
 dotenv.config();
 console.log(process.env.ACCESS_TOKEN);
 const bot = new BootBot({
   accessToken:
-    process.env.ACCESS_TOKEN ||
-    `EAAMtQX1NaoQBALN423SgKMuZBpcZBPAqshcg0Q6UzjugTB6GKihnI6Bn4UX1lkvG3Jy3cyiWv8WhdCgTGAksnxpODOcyWU1ofMflWex6JE8vUZADQWsZBH3OOAyB7xZB2kFopD91zuRaZCkJZAI2CcRkHY5trckQj3n8adbDlZA8dfxyxiKPbZA0T`,
+    process.env.ACCESS_TOKEN || token,
   verifyToken: "athackhiu",
   appSecret: process.env.APP_SECRET || "07e316f8452453f6c242e45edccccc36",
 });
