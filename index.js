@@ -16,16 +16,17 @@ const bot = new BootBot({
   appSecret: process.env.APP_SECRET || "07e316f8452453f6c242e45edccccc36",
 });
 
-bot.on("message", (payload, chat) => {
-  const text = payload.message.text;
-  console.log(`The user said: ${text}`);
-});
+// bot.on("message", (payload, chat) => {
+//   const text = payload.message.text;
+//   console.log(`The user said: ${text}`);
+// });
+
+// bot.hear(["hello", "hi", /hey( there)?/i], (payload, chat) => {
+//   console.log('The user said "hello", "hi", "hey", or "hey there"');
+// });
 
 bot.hear(["hello", "hi", /hey( there)?/i], (payload, chat) => {
-  console.log('The user said "hello", "hi", "hey", or "hey there"');
-});
-
-bot.hear(["hello", "hi", /hey( there)?/i], (payload, chat) => {
+  console.log('sending a message ...')
   // Send a text message followed by another text message that contains a typing indicator
   chat.say("Hello, human friend!").then(() => {
     chat.say("How are you today?", { typing: true });
