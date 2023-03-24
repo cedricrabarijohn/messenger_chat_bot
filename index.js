@@ -16,49 +16,50 @@ const bot = new BootBot({
   appSecret: process.env.APP_SECRET || "07e316f8452453f6c242e45edccccc36",
 });
 
-// bot.on("message", (payload, chat) => {
-//   const text = payload.message.text;
-//   console.log(`The user said: ${text}`);
-// });
+bot.on("message", (payload, chat) => {
+  const text = payload.message.text;
+  console.log(`The user said: ${text}`);
+  chat.say(`Hi I'm Lili`)
+});
 
 // bot.hear(["hello", "hi", /hey( there)?/i], (payload, chat) => {
 //   console.log('The user said "hello", "hi", "hey", or "hey there"');
 // });
 
-bot.hear(["hello", "hi", /hey( there)?/i], (payload, chat) => {
-  console.log('sending a message ...')
-  // Send a text message followed by another text message that contains a typing indicator
-  chat.say("Hello, human friend!").then(() => {
-    chat.say("How are you today?", { typing: true });
-  });
-});
+// bot.hear(["hello", "hi", /hey( there)?/i], (payload, chat) => {
+//   console.log('sending a message ...')
+//   // Send a text message followed by another text message that contains a typing indicator
+//   chat.say("Hello, human friend!").then(() => {
+//     chat.say("How are you today?", { typing: true });
+//   });
+// });
 
-bot.hear(["food", "hungry"], (payload, chat) => {
-  // Send a text message with quick replies
-  chat.say({
-    text: "What do you want to eat today?",
-    quickReplies: ["Mexican", "Italian", "American", "Argentine"],
-  });
-});
+// bot.hear(["food", "hungry"], (payload, chat) => {
+//   // Send a text message with quick replies
+//   chat.say({
+//     text: "What do you want to eat today?",
+//     quickReplies: ["Mexican", "Italian", "American", "Argentine"],
+//   });
+// });
 
-bot.hear(["help"], (payload, chat) => {
-  // Send a text message with buttons
-  chat.say({
-    text: "What do you need help with?",
-    buttons: [
-      { type: "postback", title: "Settings", payload: "HELP_SETTINGS" },
-      { type: "postback", title: "FAQ", payload: "HELP_FAQ" },
-      { type: "postback", title: "Talk to a human", payload: "HELP_HUMAN" },
-    ],
-  });
-});
+// bot.hear(["help"], (payload, chat) => {
+//   // Send a text message with buttons
+//   chat.say({
+//     text: "What do you need help with?",
+//     buttons: [
+//       { type: "postback", title: "Settings", payload: "HELP_SETTINGS" },
+//       { type: "postback", title: "FAQ", payload: "HELP_FAQ" },
+//       { type: "postback", title: "Talk to a human", payload: "HELP_HUMAN" },
+//     ],
+//   });
+// });
 
-bot.hear("image", (payload, chat) => {
-  // Send an attachment
-  chat.say({
-    attachment: "image",
-    url: "http://example.com/image.png",
-  });
-});
+// bot.hear("image", (payload, chat) => {
+//   // Send an attachment
+//   chat.say({
+//     attachment: "image",
+//     url: "http://example.com/image.png",
+//   });
+// });
 
 bot.start();
